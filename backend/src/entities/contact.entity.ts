@@ -21,7 +21,7 @@ export class Contact {
 
   @ManyToOne(() => User, (client) => client.contacts, { eager: true })
   @JoinColumn()
-  client: User
+  user: User
 
   constructor() {
     if (!this.id) {
