@@ -6,10 +6,10 @@ interface IContactProviderProps {
 }
 
 interface ICreateContact {
-  fullName: string
+  name: string
   email: string
-  phone: string
-  clientId: string
+  fone: string
+  userId: string
 }
 
 interface IEditContact {

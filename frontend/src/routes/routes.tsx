@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import { Register } from "../pages/Register";
+import { Home } from "../pages/Register";
 
 export const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<Register />} />
+      <Route path="/" element={<Home />} />
     </Routes>
   );
 };

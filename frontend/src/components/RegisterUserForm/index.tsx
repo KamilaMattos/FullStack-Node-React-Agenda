@@ -22,13 +22,13 @@ interface IUserRegister {
   fone: string
 }
 
-export const ClientForm = () => {
+export const RegisterUserForm = () => {
   const { registerUser } = useContext(UserContext)
 
   const registerSchema = yup.object().shape({
-    name: yup.string().required("Campo Obrigatório"),
-    email: yup.string().required("Campo Obrigatório"),
-    fone: yup.string().required("Campo Obrigatório"),
+    name: yup.string().required("Campo obrigatório!"),
+    email: yup.string().required("Campo obrigatório!"),
+    fone: yup.string().required("Campo obrigatório!"),
   })
 
   const {
@@ -52,12 +52,12 @@ export const ClientForm = () => {
         maxWidth='700px'
         alignSelf={["flex-start", "center"]}
       >
-        <Heading color='orange.800' textAlign='center'>
-          Cadastrar
+        <Heading color='#ff577f' textAlign='center'>
+          Cadastre-se
         </Heading>
         <VStack spacing='5' mt='5'>
           <Box width='80%'>
-            <FormLabel color='orange.800'>Nome completo</FormLabel>
+            <FormLabel color='#ff577f'>Nome:</FormLabel>
             <Input
               width='100%'
               placeholder='Nome completo'
@@ -67,25 +67,21 @@ export const ClientForm = () => {
             {errors && <Text color='red'>{errors.name?.message}</Text>}
           </Box>
           <Box width='80%'>
-            <FormLabel color='orange.800'>Email</FormLabel>
+            <FormLabel color='#ff577f'>Email:</FormLabel>
             <Input
               type='email'
               width='100%'
-              placeholder='Email'
+              placeholder='Ex: seuemail@mail.com'
               variant='filled'
               {...register("email")}
             />
-            {errors.email ? (
-              <Text color='red'>{errors.email?.message}</Text>
-            ) : (
-              <Text>seuemail@mail.com</Text>
-            )}
+            {errors.email && <Text color='red'>{errors.email?.message}</Text>}
           </Box>
           <Box width='80%'>
-            <FormLabel color='orange.800'>Telefone</FormLabel>
+            <FormLabel color='#ff577f'>Telefone</FormLabel>
             <Input
               width='100%'
-              placeholder='(11)998745632'
+              placeholder='Ex: (11) 999992458'
               variant='filled'
               {...register("fone")}
             />
@@ -93,8 +89,15 @@ export const ClientForm = () => {
           </Box>
         </VStack>
         <Flex alignItems='center' justifyContent='center'>
-          <Button type='submit' mt={6} colorScheme='orange'>
-            Cadastrar
+          <Button
+            type='submit'
+            width='50%'
+            mt={10}
+            backgroundColor='#ff577f'
+            color='white'
+            _hover={{ background: "#fd377e" }}
+          >
+            CADASTRAR
           </Button>
         </Flex>
       </Box>
